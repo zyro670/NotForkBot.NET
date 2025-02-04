@@ -2246,15 +2246,8 @@ public class TradeCordHelper<T> : TradeCordDatabase<T> where T : PKM, new()
                         if (pk.CurrentFriendship < 255)
                         {
                             var delta = pk.CurrentLevel - levelOld;
-                            for (int i = 0; i < delta; i++)
-                            {
-                                if (pk.CurrentFriendship + 2 >= 255)
-                                {
-                                    pk.CurrentFriendship = 255;
-                                    break;
-                                }
-                                pk.CurrentFriendship += 2;
-                            }
+                            int newFriendship = pk.CurrentFriendship + 2 * delta;
+                            pk.CurrentFriendship = (byte)Math.Min(newFriendship, 255);
                         }
                         else buddyMsg = $"\n{user.Buddy.Nickname} gained {xpGet} EXP!";
                     }
