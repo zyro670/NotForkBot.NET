@@ -797,6 +797,7 @@ public abstract class TradeCordDatabase<T> : TradeCordBase<T> where T : PKM, new
         List<ushort> alwaysForm0 = [
             (ushort)Species.Sinistea,
             (ushort)Species.Polteageist,
+            (ushort)Species.Toxtricity,
             (ushort)Species.Poltchageist,
             (ushort)Species.Sinistcha,
             (ushort)Species.Rotom,
@@ -860,7 +861,7 @@ public abstract class TradeCordDatabase<T> : TradeCordBase<T> where T : PKM, new
 
     private static List<EvoCriteria> EggEvoCriteria(T pk1, T pk2)
     {
-        List<T> list = new() { pk1, pk2 };
+        List<T> list = [pk1, pk2];
         List<EvoCriteria> criteriaList = [];
         for (int i = 0; i < list.Count; i++)
         {
